@@ -164,13 +164,10 @@ export default class HTTP {
         let that = this
         let { server } = that
 
-        let { port, portSecure, forceSSL } = this.setting
+        let { port } = this.setting
 
-        let _port = forceSSL ? portSecure : port
+        let _port = process.env.PORT || port
 
-        if (forceSSL) {
-            this.redirectSSL()
-        }
 
         // Escuchar servicio
         server.listen(_port, $.IP_HOST, () => {

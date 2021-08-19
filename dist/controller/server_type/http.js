@@ -93,11 +93,8 @@ class HTTP {
     listener() {
         let that = this;
         let { server } = that;
-        let { port, portSecure, forceSSL } = this.setting;
-        let _port = forceSSL ? portSecure : port;
-        if (forceSSL) {
-            this.redirectSSL();
-        }
+        let { port } = this.setting;
+        let _port = process.env.PORT || port;
         server.listen(_port, $.IP_HOST, () => {
             console.log(`[ Server ] ${$.IP_HOST}:${_port}`);
             that.app.use('/', router_1.default.getRouter);
