@@ -1,10 +1,10 @@
 {
 	"name": "sgonzalez",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Perfil publico",
 	"main": "./dist/server.js",
 	"scripts": {
-		"start": "npm run dev",
+		"start": "nodemon",
 		"dev": "cross-env NODE_ENV=development nodemon",
 		"build": "tsc --project tsconfig.json && tscpaths -p tsconfig.json -s ./src -o ./dist"
 	},
