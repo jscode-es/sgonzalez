@@ -1,10 +1,10 @@
 {
 	"name": "sgonzalez",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "Perfil publico",
 	"main": "./dist/server.js",
 	"scripts": {
-		"start": "nodemon",
+		"start": "npm run build && nodemon ./dist/server.js",
 		"dev": "cross-env NODE_ENV=development nodemon",
 		"build": "tsc --project tsconfig.json && tscpaths -p tsconfig.json -s ./src -o ./dist"
 	},
@@ -23,17 +23,6 @@
 		"env": {
 			"window": true
 		}
-	},
-	"nodemonConfig": {
-		"watch": [
-			"src/**/*",
-			"public/.src/**/*"
-		],
-		"ext": "pug,ts,scss,json",
-		"exec": "node ./build.js && npm run build && node -r ./dist/server.js",
-		"verbose": false,
-		"legacyWatch": true,
-		"delay": 0
 	},
 	"dependencies": {
 		"compression": "^1.7.4",
