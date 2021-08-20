@@ -29,27 +29,26 @@ export default class Controller {
         // Service
         let { service } = params;
 
+        console.log({ service, isJsonRequest, query, method, params })
+
         // Check request service
         if (service) {
 
             method = method.toLowerCase();
             service = service.toLowerCase().trim();
 
-            const serviceDir = path.resolve(`${$.web}/${method}/${service}`);
+            if (method === 'get') {
 
-            if (fs.existsSync(`${serviceDir}.js`)) {
+                const viewDir = path.resolve(`${$.web}/page/${service}.pug`);
 
-                if (isJsonRequest) {
-                    let result = await require(serviceDir).json(query, req);
+                if (fs.existsSync(viewDir)) {
 
-                    return res.json(result);
+                    let html = await Controller.render(service);
+
+                    if (html) {
+                        return res.send(html);
+                    }
                 }
-
-                return res.send('52');
-
-            } else {
-
-                return res.redirect('/');
             }
 
         }
@@ -57,10 +56,10 @@ export default class Controller {
 
         if (!isJsonRequest && service === undefined) {
 
-            let render = await Controller.render(service);
+            let html = await Controller.render(service);
 
-            if (render) {
-                return res.send(render);
+            if (html) {
+                return res.send(html);
             }
         }
 
@@ -69,13 +68,16 @@ export default class Controller {
 
     // Renderizar html
     static async render(service: string) {
+
         // Data send to render
         let data = {};
 
         // Page to render
         let page = service ? service : 'index';
 
+
         let redirectContent = page === 'index' ? 'index' : `page/${page}`;
+        console.log({ redirectContent })
         let _pathContent = path.resolve(`${$.root}/view/www/${redirectContent}.pug`);
         let _pathController = path.resolve(`${__dirname}/../../router/www/get/${page}.js`);
 

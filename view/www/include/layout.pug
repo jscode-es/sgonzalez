@@ -1,22 +1,23 @@
 .row
 	.col.img_profiler(style="background: url(./img/viaje_tokyo.jpg); background-size: cover;background-position: center; filter: contrast(0.7);")
 	.col.content
+		.load_dynamic carga dinámica
 		.center
 			.page
-				small Sergio González
-				h1 Diseñador.
-				h1 Programador.
-				h1 Técnico.
+				small.text_small Sergio González
+				h1.text_main Diseñador.
+				h1.text_main Programador.
+				h1.text_main Técnico.
 				.social
-					a(href="")
+					a(href="https://www.twitch.tv/jscode_" target="_blank")
 						i(class="fab fa-twitch")
-					a(href="")
+					a(href="https://www.instagram.com/jscode_es/" target="_blank")
 						i(class="fab fa-instagram")
-					a(href="")
+					a(href="https://github.com/JSCode-es/" target="_blank")
 						i(class="fab fa-github")
-					a(href="")
+					a(href="https://www.youtube.com/channel/UCXLcSZzqpRzQ-FplONzCrMw" target="_blank")
 						i(class="fab fa-youtube")
-					a(href="")
+					a(id="envelope" data-page="envelope" class="open_content")
 						i(class="far fa-envelope")
 				p.
 					Desde siempre me ha gustado ayudar a la gente
@@ -26,6 +27,6 @@
 					 y conocimiento necesarios para reforzar esas debilidades.
 				h3 Proyectos
 				.group-block
-					block-info(title="Farmaconnect", desc="Desarrollo de etiquetas electrónicas y marqueting digital",img="etiquetas.png", action="")
-					block-info(title="Canal Twitch", desc="Enseñanzas de programación en directol",img="directos.png", action="")
-					block-info(title="Modulo DODB", desc="Gestión de Base de datos para #[b Node JS]",img="npm.png", action="")
+					block-info(title="Farmaconnect", desc="Desarrollo de etiquetas electrónicas y marqueting digital",img="etiquetas.png", action="tag")
+					block-info(title="Canal Twitch", desc="Enseñanzas de programación en directol",img="directos.png", action="twitch")
+					block-info(title="Modulo DODB", desc="Gestión de Base de datos para #[b Node JS]",img="npm.png", action="dodb")

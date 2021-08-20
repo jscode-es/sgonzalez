@@ -17,7 +17,7 @@ class BlockInfo extends HTMLElement {
         let img = this.getAttribute('img')
 
         let html = `
-        <a href="${action}" class="block">
+        <a data-page="${action}" class="block open_content">
             <div class="img" style="background:url(./img/${img});background-position: center;background-size: cover;"></div>
             <h2 class="title">${title}</h2>
             <p class="desc">${desc}</p>

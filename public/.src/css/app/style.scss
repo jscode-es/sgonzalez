@@ -4,12 +4,34 @@ small
     font-weight: 700;
     text-rendering: optimizeSpeed;
     color: #6d6969;
+    transition: 0s;
+    position: relative;
+    opacity: 0;
+    top: -25px;
+
+    &.animate
+    {
+        transition: ease .5s;
+        top: 0px;
+        opacity: 1;
+    }
 }
 
 h1
 {
     font-size: 6vw;
     line-height: 1vw;
+    left: -200px;
+    position: relative;
+    opacity: 0;
+    transition: 0s;
+
+    &.animate
+    {
+        transition: ease .5s;
+        left: 0px;
+        opacity: 1;
+    }
 }
 
 p{
@@ -22,7 +44,26 @@ p{
 {
     & a{
         color: #551a8b;
-        margin-right: 15px;
+        margin-right: 10px;
         font-size: 3vw;
+        width: 40px;
+        height: 35px;
+        display: inline-flex;
+        position: relative;
+
+        & i {
+            transition-property: transform;
+            transition: 0.2s;
+            transform: scale(1);
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            font-size: 100%;
+        }
+
+        &:hover i
+        {
+            transform: scale(1.2);
+        }
     }
 }

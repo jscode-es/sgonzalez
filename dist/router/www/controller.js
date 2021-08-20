@@ -37,25 +37,24 @@ class Controller {
         let req = this.req;
         let { method, params, isJsonRequest, query } = req;
         let { service } = params;
+        console.log({ service, isJsonRequest, query, method, params });
         if (service) {
             method = method.toLowerCase();
             service = service.toLowerCase().trim();
-            const serviceDir = path_1.default.resolve(`${$.web}/${method}/${service}`);
-            if (fs_1.default.existsSync(`${serviceDir}.js`)) {
-                if (isJsonRequest) {
-                    let result = await require(serviceDir).json(query, req);
-                    return res.json(result);
+            if (method === 'get') {
+                const viewDir = path_1.default.resolve(`${$.web}/page/${service}.pug`);
+                if (fs_1.default.existsSync(viewDir)) {
+                    let html = await Controller.render(service);
+                    if (html) {
+                        return res.send(html);
+                    }
                 }
-                return res.send('52');
-            }
-            else {
-                return res.redirect('/');
             }
         }
         if (!isJsonRequest && service === undefined) {
-            let render = await Controller.render(service);
-            if (render) {
-                return res.send(render);
+            let html = await Controller.render(service);
+            if (html) {
+                return res.send(html);
             }
         }
         return res.status(404).send('Not found');
@@ -64,6 +63,7 @@ class Controller {
         let data = {};
         let page = service ? service : 'index';
         let redirectContent = page === 'index' ? 'index' : `page/${page}`;
+        console.log({ redirectContent });
         let _pathContent = path_1.default.resolve(`${$.root}/view/www/${redirectContent}.pug`);
         let _pathController = path_1.default.resolve(`${__dirname}/../../router/www/get/${page}.js`);
         if (fs_1.default.existsSync(_pathController)) {
