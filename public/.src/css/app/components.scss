@@ -1,0 +1,59 @@
+.group-block 
+{
+    display: flex;
+    //justify-content: space-between;
+    width: 600px;
+    
+    & block-info
+    {
+        display: flex;
+        margin-right: 15px;
+
+        & .block
+        {
+            width: 13vw;
+            text-decoration: none;
+            transition: .3s;
+            position: relative;
+            top: 0px;
+            transition:.3s;
+    
+            & .img
+            {
+                background: #cecece;
+                width: 13vw;
+                height: 13vw;
+                border-radius: 10px;
+                margin-bottom: 1vh;
+                box-shadow: 1px 1px 9px 1px #332f2f82;
+                
+            }
+            
+            &:hover
+            {
+                top: -10px;
+            }
+
+            &:hover .img
+            {
+                cursor: pointer;
+            }
+    
+            & .title
+            {
+                font-weight: 700;
+                font-size: 1.5vw;
+                margin: 15px 0 10px 0;
+            }
+    
+            & .desc
+            {
+                color: #250740;
+                margin: 0;
+                font-size: 1vw;
+            }
+        }
+    }
+}
+
+

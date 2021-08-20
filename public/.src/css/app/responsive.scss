@@ -1,0 +1,57 @@
+@media (min-width: 1400px) 
+{
+    ////////////////////
+    // LAYOUT
+    ////////////////////
+
+    .row .col.content .center {
+        width: calc(100% - 150px);
+        height: calc(100% - 150px);
+    }
+
+    ////////////////////
+    // STYLE
+    ////////////////////
+
+    h1
+    {
+        font-size: 80px;
+        line-height: 15px;
+    }
+
+    p{  font-size: 18px; }
+
+    .social a { font-size: 40px; }
+
+    ////////////////////
+    // COMPONENTS
+    ////////////////////
+
+    .group-block {
+
+        & block-info {
+
+            width: 180px;
+
+            & .block {
+
+                width: 180px;
+
+                & .img {
+            
+                    width: 180px;
+                    height: 150px;
+                }
+            }
+        }
+    }
+
+}
+
+@media (max-width: 1100px) 
+{
+    .col.img_profiler {
+        width: 50%;
+    }
+    
+}

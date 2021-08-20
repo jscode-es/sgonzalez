@@ -1,5 +1,5 @@
 .row
-	.col.img_profiler
+	.col.img_profiler(style="background: url(./img/viaje_tokyo.jpg); background-size: cover;background-position: center; filter: contrast(0.7);")
 	.col.content
 		.center
 			.page
@@ -19,21 +19,13 @@
 					a(href="")
 						i(class="far fa-envelope")
 				p.
-					Split is the first template made in collaboration with S
-					uper & One Page Love. It runs completely on Notion. It co
-					mes with an alternative flipped layout, and includes light & dar
-					theme variations. You can duplicate this template for free here.
+					Desde siempre me ha gustado ayudar a la gente
+					con mis habilidades y mejorar la calidad de vida,
+					#[b desarrollando herramientas] que faciliten el día a día 
+					de la personas con menos recursos. Programar me ha dado el instrumental
+					 y conocimiento necesarios para reforzar esas debilidades.
 				h3 Proyectos
-				.group-block 
-					a.block
-						.img
-						.title Farmaconnect
-						.desc Desarrollo de etiquetas electrónicas y marqueting digital
-					a.block
-						.img
-						.title Canal Twitch
-						.desc Enseñanzas de programación en directo
-					a.block
-						.img
-						.title Modulo DODB
-						.desc Gestión de Base de datos para #[b Node JS]
+				.group-block
+					block-info(title="Farmaconnect", desc="Desarrollo de etiquetas electrónicas y marqueting digital",img="etiquetas.png", action="")
+					block-info(title="Canal Twitch", desc="Enseñanzas de programación en directol",img="directos.png", action="")
+					block-info(title="Modulo DODB", desc="Gestión de Base de datos para #[b Node JS]",img="npm.png", action="")

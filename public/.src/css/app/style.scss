@@ -1,0 +1,28 @@
+small
+{
+    text-transform: uppercase;
+    font-weight: 700;
+    text-rendering: optimizeSpeed;
+    color: #6d6969;
+}
+
+h1
+{
+    font-size: 6vw;
+    line-height: 1vw;
+}
+
+p{
+    font-size: 1.5vw;
+    color: #250740;
+    max-width: 600px;
+}
+
+.social
+{
+    & a{
+        color: #551a8b;
+        margin-right: 15px;
+        font-size: 3vw;
+    }
+}
