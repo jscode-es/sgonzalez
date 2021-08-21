@@ -42,10 +42,37 @@ const APP = async () => {
 
             content_dynamic.innerHTML = data
 
+            hljs.highlightAll()
+
+            let form = document.querySelector('form')
+
+            if (form.length != 0) {
+
+                form.addEventListener('submit', function (event) {
+
+                    event.preventDefault()
+
+                    let element = event.currentTarget
+
+                    let name = document.querySelector('[name="name"]').value
+                    let subject = document.querySelector('[name="subject"]').value
+                    let msn = document.querySelector('[name="msn"]').value
+
+                    if (name.trim().length != 0 && subject.trim().length != 0 && msn.trim().length != 0) {
+
+                    } else {
+
+                    }
+
+                })
+            }
+
             content_dynamic.classList.add('animate')
+
 
         })
     })
+
 
     // ANIMACION DE LA LETRAS
     small.classList.add('animate')

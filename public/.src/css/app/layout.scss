@@ -18,6 +18,7 @@ body
     & .col
     {
         width: 100%;
+        transition: .5s;
 
         &.img_profiler
         {
@@ -30,6 +31,8 @@ body
             align-items: center;
             justify-content: center;
             position: relative;
+            overflow: auto;
+            overflow-x: hidden;
 
             & .center
             {
@@ -50,7 +53,7 @@ body
 
 .load_dynamic
 {
-    background: #f3f3f3;
+    background: white;
     position: absolute;
     top: 0;
     left: 100%;
@@ -88,5 +91,12 @@ body
 
 .margin
 {
-    margin: 30px;
+    margin: 30px 70px;
+    padding-bottom: 40px;
+}
+
+.img_article{
+    width: 100%;
+    height: 245px;
+    max-width: 600px;
 }

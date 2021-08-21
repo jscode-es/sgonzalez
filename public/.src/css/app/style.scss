@@ -34,6 +34,12 @@ h1
     }
 }
 
+h2
+{
+    font-size: 40px;
+    margin-top: 55px;
+}
+
 p{
     font-size: 1.5vw;
     color: #250740;
@@ -65,5 +71,116 @@ p{
         {
             transform: scale(1.2);
         }
+    }
+}
+
+
+.hljs {
+    background: #2d2c2c;
+    color: #dedede;
+    border-radius: 10px;
+}
+
+.hljs-attribute, 
+.hljs-doctag, 
+.hljs-keyword, 
+.hljs-meta 
+.hljs-keyword, 
+.hljs-name, 
+.hljs-selector-tag {
+
+    color: #e91e63;
+}
+
+.hljs-deletion, 
+.hljs-number, 
+.hljs-quote, 
+.hljs-selector-class, 
+.hljs-selector-id, 
+.hljs-string, 
+.hljs-template-tag, 
+.hljs-type {
+    color: #8bc34a;
+}
+
+.hljs-section, 
+.hljs-title {
+    color: #3b8cce;
+}
+
+.btn-link
+{
+    background: #2196f3;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: inline-block;
+    border-radius: 5px;
+    color: white;
+    outline: none;
+    border: none;
+    font-size: 15px;
+
+    &:hover
+    {
+        cursor: pointer;
+        background: #1576c3;
+    }
+
+}
+
+form
+{
+    & label
+    {
+        
+        display: block;
+
+    }
+
+    & [type="text"],
+    & textarea
+    {
+        width: 100%;
+        max-width: 600px;
+        padding: 5px;
+        border-radius: 5px;
+        border: solid 1px #c5c5c5;
+        margin-bottom: 20px;
+    }
+
+    & [type="submit"]
+    {
+        margin-bottom: 20px;   
+    }
+}
+
+.info-form
+{
+    background: #d8d4d4;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    max-width: 600px;
+    opacity: 0;
+    transition: .5s;
+    top: 30px;
+    position: relative;
+
+
+    &.success
+    {
+        background: #009688;
+        color: white;
+        top: 0px;
+        opacity: 1;
+    }
+
+    &.error
+    { 
+        background: #e91e63;
+        color: white;
+        top: 0px;
+        opacity: 1;
     }
 }

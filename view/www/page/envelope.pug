@@ -1,8 +1,17 @@
 include include/close_dynamic.pug
 .margin
-    h2 Contactas para obtener información
+    h2 Contactas para#[br]obtener información
     p.
         Ex vix libris similique, ad paulo mandamus per. Tale s
         oluta cetero mel ne, everti petentium sed an, minimum p
         erpetua senserit id mea. Vel offendit scribentur ut. A
         n luptatum iracundia vulputate pro.
+    form
+        label(for="name") Nombre
+        input(type="text", name="name")
+        label(for="subject") Asunto
+        input(type="text", name="subject")
+        label(for="msn") Mensaje
+        textarea(name="msn", cols="30", rows="10")
+        button(type="submit" class="btn-link") Envia tu mensaje
+        .info-form Info aqui del estado del formulario
