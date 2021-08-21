@@ -46,7 +46,7 @@ const APP = async () => {
 
             let form = document.querySelector('form')
 
-            if (form.length != 0) {
+            if (form) {
 
                 form.addEventListener('submit', function (event) {
 
