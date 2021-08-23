@@ -55,3 +55,67 @@
     }
     
 }
+
+@media (max-width: 890px) 
+{
+    .only_mobile
+    {
+        display: block;
+    }
+
+    .col.content
+    {
+        height: 100%;
+    }
+
+    .col.img_profiler {
+      display: none;
+    }
+
+    .row {
+        display: flex;
+        height: 100%;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    p {
+        font-size: 3.5vw;
+        max-width: 100%;
+    }
+
+    .social a {
+        font-size: 38px;
+    }
+
+    h1 {
+        font-size: 10vw;
+        line-height: 1.5vw;
+    }
+
+    .margin {
+        margin: 30px 25px;
+    }
+
+    .group-block block-info .block {
+        width: 25vw;
+    }
+
+    .group-block block-info .block .img {
+        width: 25vw;
+        height: 25vw;
+    }
+
+    .group-block block-info .block .desc {
+        display: none;
+    }
+
+    .group-block block-info .block .title {
+        font-size: 3.2vw;
+        text-align: center;
+    }
+
+    .row .col.content .center {
+        width: calc(100% - 69px);
+    }
+}

@@ -46,6 +46,8 @@ p{
     max-width: 600px;
 }
 
+
+
 .social
 {
     & a{
@@ -56,6 +58,11 @@ p{
         height: 35px;
         display: inline-flex;
         position: relative;
+
+        &.mr-16
+        {
+            margin-right: 16px !important;
+        }
 
         & i {
             transition-property: transform;
@@ -154,6 +161,12 @@ form
     }
 }
 
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #757171;
+}
+
 .info-form
 {
     background: #d8d4d4;
@@ -184,3 +197,17 @@ form
         opacity: 1;
     }
 }
+
+.web_judgment {
+    position: absolute;
+    background: #3f51b5;
+    top: 39px;
+    transform: rotate(37deg);
+    right: -85px;
+    padding: 20px 77px;
+    width: 182px;
+    text-align: center;
+    color: white;
+    font-size: 12px;
+}
+

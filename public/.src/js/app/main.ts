@@ -6,16 +6,24 @@ declare global {
     }
 }
 
-const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
+declare var hljs: any
 
-let content_dynamic = document.querySelector('.load_dynamic')
+const $ = document.querySelector.bind(document)
+const $$ = document.querySelectorAll.bind(document)
+
+const addClass = (element: any, className = '') => element.classList.add(className)
+const removeClass = (element: any, className = '') => element.classList.remove(className)
+const getValueByName = (name: string) => (<HTMLInputElement>$(`[name="${name}"]`)).value.trim()
+const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms))
+
+let content_dynamic = $('.load_dynamic')
 
 const APP = async () => {
 
-    let small = document.querySelector('.text_small')
-    let text = document.querySelectorAll('.text_main')
+    let small = $('.text_small')
+    let text = $$('.text_main')
 
-    let open_content = document.querySelectorAll('.open_content')
+    let open_content = $$('.open_content')
 
     open_content.forEach(item => {
 
@@ -44,50 +52,70 @@ const APP = async () => {
 
             hljs.highlightAll()
 
-            let form = document.querySelector('form')
+            let form = $('form')
 
             if (form) {
 
-                form.addEventListener('submit', function (event) {
+                let info = $('.info-form')
+
+                form.addEventListener('submit', async function (event) {
 
                     event.preventDefault()
 
-                    let element = event.currentTarget
+                    let name = getValueByName('name')
+                    let subject = getValueByName('subject')
+                    let msn = getValueByName('msn')
 
-                    let name = document.querySelector('[name="name"]').value
-                    let subject = document.querySelector('[name="subject"]').value
-                    let msn = document.querySelector('[name="msn"]').value
+                    removeClass(info, 'error')
 
-                    if (name.trim().length != 0 && subject.trim().length != 0 && msn.trim().length != 0) {
+                    if (name.length != 0 &&
+                        subject.length != 0 &&
+                        msn.length != 0) {
+
+                        options.method = 'post'
+                        options.body = JSON.stringify({ name, subject, msn })
+
+                        let data = await (await fetch('/contact', options)).json()
+
+                        let status = 'error'
+
+                        if (data) {
+                            status = 'success'
+                            event.target.reset()
+                        }
+
+                        addClass(info, status)
+
+                        setTimeout(() => { removeClass(info, status) }, 3000)
 
                     } else {
 
+                        addClass(info, 'error')
                     }
 
                 })
             }
 
-            content_dynamic.classList.add('animate')
-
+            addClass(content_dynamic, 'animate')
 
         })
     })
 
 
     // ANIMACION DE LA LETRAS
-    small.classList.add('animate')
+    addClass(small, 'animate')
 
     for (const item of text) {
 
         await delay(800)
-        item.classList.add('animate')
+        addClass(item, 'animate')
     }
 
 }
 
 window.closeContentDynamic = () => {
 
-    content_dynamic.classList.remove('animate')
+    removeClass(content_dynamic, 'animate')
 }
 
 window.onload = APP

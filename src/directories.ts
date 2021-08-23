@@ -27,11 +27,6 @@ $.IP_PRO = '0.0.0.0'
 // Enviorment
 $.IP_HOST = $.NODE_ENV === 'development' ? '0.0.0.0' : $.IP_PRO
 
-console.log({
-    node: $.NODE_ENV,
-    ip: $.IP_HOST
-})
-
 // Certificate
 $.CERT = $.NODE_ENV === 'development' ? $.CERT_DEV : $.CERT_PRO
 $.CERT_KEY = $.NODE_ENV === 'development' ? $.CERT_KEY_DEV : $.CERT_KEY_PRO
