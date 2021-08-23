@@ -13,4 +13,4 @@ import server from "@controller/server"
 error.listener()
 
 // Launch server
-new server(server.HTTP);
+export default new server(server.HTTP);

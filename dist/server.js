@@ -9,5 +9,5 @@ require("./directories");
 const error_1 = __importDefault(require("./controller/error"));
 const server_1 = __importDefault(require("./controller/server"));
 error_1.default.listener();
-new server_1.default(server_1.default.HTTP);
+exports.default = new server_1.default(server_1.default.HTTP);
 //# sourceMappingURL=server.js.map
