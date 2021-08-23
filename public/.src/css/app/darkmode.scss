@@ -1,0 +1,26 @@
+body.dark
+{
+    background: #191919;
+    color: #c7c7c7;
+
+    & p {
+        color: #ccb0e4;;
+    }
+
+    & .social a {
+        color: #a13aff;
+    }
+
+    & .group-block block-info .block .desc {
+        color: #a042f5;
+    }
+
+    & .load_dynamic {
+        background: #191919;
+    }
+
+    & .img_profiler
+    {
+        filter: contrast(0.7) opacity(0.6) !important;
+    }
+}

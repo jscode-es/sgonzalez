@@ -13,6 +13,7 @@ const $$ = document.querySelectorAll.bind(document)
 
 const addClass = (element: any, className = '') => element.classList.add(className)
 const removeClass = (element: any, className = '') => element.classList.remove(className)
+const hasClass = (element: any, className = '') => element.classList.contains(className)
 const getValueByName = (name: string) => (<HTMLInputElement>$(`[name="${name}"]`)).value.trim()
 const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms))
 
@@ -22,6 +23,9 @@ const APP = async () => {
 
     let small = $('.text_small')
     let text = $$('.text_main')
+    let darkMode = $('.dark_mode')
+    let darkIcon = $('.dark_mode > i')
+    let body = $('body')
 
     let open_content = $$('.open_content')
 
@@ -84,12 +88,15 @@ const APP = async () => {
                             event.target.reset()
                         }
 
+                        info.innerHTML = 'Su mensaje se envió correctamente'
                         addClass(info, status)
+
 
                         setTimeout(() => { removeClass(info, status) }, 3000)
 
                     } else {
 
+                        info.innerHTML = 'Algun campo no esta completo'
                         addClass(info, 'error')
                     }
 
@@ -99,6 +106,27 @@ const APP = async () => {
             addClass(content_dynamic, 'animate')
 
         })
+    })
+
+    darkMode.addEventListener('click', function (event) {
+
+        event.preventDefault()
+
+        if (hasClass(darkIcon, 'fa-sun')) {
+
+            removeClass(darkIcon, 'fa-sun')
+            addClass(darkIcon, 'fa-moon')
+            addClass(darkMode, 'animate')
+            addClass(body, 'dark')
+
+        } else {
+
+            removeClass(darkIcon, 'fa-moon')
+            addClass(darkIcon, 'fa-sun')
+            removeClass(darkMode, 'animate')
+            removeClass(body, 'dark')
+        }
+
     })
 
 
@@ -115,7 +143,16 @@ const APP = async () => {
 
 window.closeContentDynamic = () => {
 
+    let info = $('.info-form')
+
     removeClass(content_dynamic, 'animate')
+
+    console.log(info)
+
+    if (info) {
+        removeClass(info, 'error')
+        removeClass(info, 'success')
+    }
 }
 
 window.onload = APP
